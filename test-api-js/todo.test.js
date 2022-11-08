@@ -34,4 +34,16 @@ describe('todo test suite', () => {
         expect(todo_service.get_todos().todo.length).toEqual(4);
     });
 
+    test("deleting the todo", () => {
+        let todo = {
+            "title": "Deepak Todo",
+            "description": "Deepak",
+            "done": false
+        };
+        expect(todo_service.get_todos().todo.length).toEqual(4);
+        todo_service.delete_todo(todo);
+        expect(todo_service.get_todos().todo.length).toEqual(3);
+    });
+
+
 });
