@@ -24,14 +24,19 @@ class todoservice{
 
     add_todo(todo){
         // Your code here
+        let l = this.todo_data.todo.length;
+        this.todo_data.todo[l] = todo;
     }
 
     delete_todo(id){
         // Your code here
+        this.todo_data.todo.splice(id, 1);
     }
 
     update_todo(id, todo){
         // Your code here
+        this.todo_data.todo[id] = todo;
+        return this.todo_data.todo[id];
     }
 }
 
