@@ -23,5 +23,37 @@ describe('todo test suite', () => {
 
     // Write all your test cases here that corresponds to software requirements
 
+    test("Adding the todo", () => {
+        let todo = {
+            "title": "Deepak Todo",
+            "description": "Deepak",
+            "done": false
+        };
+        expect(todo_service.get_todos().todo.length).toEqual(3);
+        todo_service.add_todo(todo);
+        expect(todo_service.get_todos().todo.length).toEqual(4);
+    });
+
+    test("deleting the todo", () => {
+        let todo = {
+            "title": "Deepak Todo",
+            "description": "Deepak",
+            "done": false
+        };
+        expect(todo_service.get_todos().todo.length).toEqual(4);
+        todo_service.delete_todo(todo);
+        expect(todo_service.get_todos().todo.length).toEqual(3);
+    });
+
+    test("Updating the todo", () => {
+        let todo = {
+            "title": "Deepak Todo",
+            "description": "Deepak",
+            "done": false
+        };
+        let result_todo = todo_service.update_todo(2, todo);
+        expect(result_todo.title).toEqual('Deepak Todo');
+    });
+
 
 });
